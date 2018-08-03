@@ -1,0 +1,101 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="profile" padding>
+    
+    <div class="container" align="center">
+        <h2 class="h2">My Profile</h2>
+        <form [formGroup]="formProfile" (ngProfile)="profileForm(formProfile)">
+         
+        <ion-list>
+
+            <div class="ion-item2">
+                <ion-item   [ngClass]="{'error-border':!formProfile.controls.firstName.valid && formProfile.controls.firstName.touched}">
+                    <ion-label stacked> First Name</ion-label>
+                    <ion-input class="input-box" formControlName="firstName" type="text"></ion-input>
+                </ion-item>
+
+                <ion-item   [ngClass]="{'error-border':!formProfile.controls.lastName.valid && formProfile.controls.lastName.touched}">
+                    <ion-label stacked> Last Name</ion-label>
+                    <ion-input class="input-box" formControlName="lastName" type="text"></ion-input>
+                </ion-item>
+            </div>
+
+            <div class="ion-item3">
+                <ion-item id="email"  [ngClass]="{'error-border':!formProfile.controls.email.valid && formProfile.controls.email.touched}">
+                    <ion-label stacked>Email</ion-label>
+                   
+                    <ion-input class="input-box" formControlName="email" type="password" type="email"></ion-input>
+                  </ion-item>
+      
+                  <ion-item class="item1" *ngIf="formProfile.controls.email.hasError('required') && formProfile.controls.email.touched">
+                      <p ion-text color="danger">Email is required!</p>
+                      </ion-item>
+      
+                 <ion-item  class="item1" *ngIf="formProfile.controls.email.hasError('pattern') && profileForm.controls.email.touched">
+                       <p ion-text color="danger">Please enter your Email!</p>
+                       </ion-item>
+      
+                 <ion-item class="item1" *ngIf="formProfile.controls.email.hasError('maxLength') && formProfile.controls.maxLength.touched">
+                     <p ion-text color="danger">Minimum email length is 20!</p>
+                     </ion-item>      
+            </div>
+            <div class="ion-item4">
+                <ion-item class="item"  [ngClass]="{'error-border':!formProfile.controls.password.valid && formProfile.controls.password.touched}">
+                    <ion-label stacked> Password</ion-label>
+                    <ion-input class="input-box" formControlName="password" type="password"></ion-input>
+                </ion-item>
+      
+                <ion-item class="item" *ngIf="formProfile.controls.password.hasError('required') && formProfile.controls.password.touched">
+                    <p ion-text color="danger">Password is required!</p>
+                    </ion-item>
+                    
+                    <ion-item class="item" *ngIf="formProfile.controls.password.hasError('pattern') && formProfile.controls.password.touched">
+                    <p ion-text color="danger">Please enter your password!</p>
+                    </ion-item>
+                    <ion-item class="item" *ngIf="formProfile.controls.password.hasError('maxLength') && formProfile.controls.maxLength.touched">
+                           <p ion-text color="danger">Minimum password length is 6!</p>
+                           </ion-item>
+            </div>
+
+            <div class="ion-item4">
+                <ion-item class="item"  [ngClass]="{'error-border':!formProfile.controls.confirmPassword.valid && formProfile.controls.password.touched}">
+                    <ion-label stacked> Confirm Password</ion-label>
+                    <ion-input class="input-box" formControlName="password" type="password"></ion-input>
+                </ion-item>
+               
+                <ion-item class="item" *ngIf="formProfile.controls.password.hasError('required') && formProfile.controls.confirmPassword.touched">
+                    <p ion-text color="danger">Password is required!</p>
+                    </ion-item>
+                
+                    <ion-item class="item" *ngIf="formProfile.controls.confirmPassword.hasError('pattern') && formProfile.controls.confirmPassword.touched">
+                    <p ion-text color="danger">Please enter your password!</p>
+                    </ion-item>
+                    <ion-item class="item" *ngIf="formProfile.controls.confirmPassword.hasError('maxLength') && formProfile.controls.maxLength.touched">
+                           <p ion-text color="danger">Minimum password length is 6!</p>
+                           </ion-item>
+            </div>
+
+            <button round ion-button   color="sweet" type="createAccount" (click)="createAccount()">CREAT ACCOUNT</button>
+            <button round ion-button   color="sweet" type="logOut" (click)="logOut()">LOGOUT</button>
+
+
+
+        </ion-list>
+
+           
+</form>
+      </div>
+</ion-content>

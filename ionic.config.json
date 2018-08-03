@@ -1,0 +1,7 @@
+{
+  "name": "appDesign",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
